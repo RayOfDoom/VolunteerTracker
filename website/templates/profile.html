@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <br/>
+    <form method="POST">
+        <h3 align="center">Update Your Personal Information</h3>
+        <h4>Account Information</h4>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" disabled>
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName"
+                   disabled>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName"
+                   disabled>
+        </div>
+        <button type="submit" class="btn btn-primary" name="update" value="account_info">Update</button>
+    </form>
+    <br/>
+    <form method="POST">
+        <h5>Change Your Password</h5>
+        <div class="form-group">
+            <label for="old_password">Old Password</label>
+            <input type="password" class="form-control" id="old_password" name="old_password"
+                   placeholder="Enter your old password">
+        </div>
+        <div class="form-group">
+            <label for="new_password1">New Password</label>
+            <input type="password" class="form-control" id="new_password1" name="new_password1"
+                   placeholder="Enter your new password">
+        </div>
+        <div class="form-group">
+            <label for="new_password2">New Password (Confirm)</label>
+            <input type="password" class="form-control" id="new_password2" name="new_password2"
+                   placeholder="Confirm your new password">
+        </div>
+        <button type="submit" class="btn btn-primary" name="update" value="change_password">Update</button>
+    </form>
+    <br/>
+    <form method="POST">
+        <h4>Contact Information</h4>
+        <div class="form-group">
+            <label for="wxid">Wechat ID</label>
+            <input type="text" class="form-control" id="wxid" name="wxid"
+                   placeholder="Enter your wechat ID">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone"
+                   placeholder="Enter your phone number (include +86, +1, etc)">
+        </div>
+        <div class="form-group">
+            <label for="parent_name">Parent's Name</label>
+            <input type="text" class="form-control" id="parent_name" name="parent_name"
+                   placeholder="Enter your parent's name (first and last)">
+        </div>
+        <div class="form-group">
+            <label for="parent_email">Parent's Email Address</label>
+            <input type="email" class="form-control" id="parent_email" name="parent_email"
+                   placeholder="Enter your parent's email address">
+        </div>
+        <div class="form-group">
+            <label for="parent_wxid">Parent's Wechat ID</label>
+            <input type="text" class="form-control" id="parent_wxid" name="parent_wxid"
+                   placeholder="Enter your parent's Wechat ID">
+        </div>
+        <div class="form-group">
+            <label for="parent_phone">Parent's Phone Number</label>
+            <input type="tel" class="form-control" id="parent_phone" name="parent_phone"
+                   placeholder="Enter your parent's phone number (include +86, +1, etc)">
+        </div>
+        <button type="submit" class="btn btn-primary" name="update" value="contact_info">Update</button>
+    </form>
+    <br/>
+    <form method="POST">
+        <h4>Volunteer Information</h4>
+        <div class=" form-group">
+            <label for="literacy">English Literacy</label>
+            <select class="form-control" id="literacy" name="literacy">
+                <option value="native">Native</option>
+                <option value="fluent">Fluent</option>
+                <option value="conversational">Conversational</option>
+                <option value="beginner">Beginner</option>
+                <option value="incapable">Incapable</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="start_date">Volunteering Start Date</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" disabled>
+        </div>
+        <div class="form-group">
+            <label for="school">School</label>
+            <input type="text" class="form-control" id="school" name="school"
+                   placeholder="Enter your school name">
+        </div>
+        <div class="form-group">
+            <label for="birth_date">Date of Birth</label>
+            <input type="date" class="form-control" id="birth_date" name="birth_date">
+        </div>
+        <div class="form-group">
+            <label for="career">Intended Career/Desired Major</label>
+            <input type="text" class="form-control" id="career" name="career"
+                   placeholder="Enter your intended major or desired career, if applicable">
+        </div>
+        <div class=" form-group">
+            <label for="status">Volunteer Status</label>
+            <select class="form-control" id="status" name="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" name="update" value="volunteer_info">Update</button>
+    </form>
+    <br/>
+{% endblock %}
