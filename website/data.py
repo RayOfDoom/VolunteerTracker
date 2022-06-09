@@ -43,32 +43,30 @@ def profile():
             parent_phone = request.form.get('parent_phone')
 
             # INSERT DATA CHECKS HERE
-            if len(wxid) < 6 or len(wxid) > 20:
-                flash('Wechat ID must be between 6 and 20 characters.', category='error')
-            elif len(phone) < 3 or len(phone) > 20:
-                flash('Phone number must be between 3 and 20 characters.', category='error')
-            elif len(parent_name) < 4 or len(parent_name) > 150:
-                flash('Parent name must be greater than 3 characters', category='error')
-            elif len(parent_email) < 4 or len(parent_email) > 150:
-                flash('Parent email must be greater than 3 characters', category='error')
-            elif len(parent_phone) < 3 or len(parent_phone) > 20:
-                flash('Parent phone number must be between 3 and 20 characters.', category='error')
+            if 1 == 0:
+                pass
             else:
-                current_info = UserContactInfo.query.filter_by(user_id=current_user.id).first()
-                if current_info:
-                    current_info.wxid = wxid
-                    current_info.phone = phone
-                    current_info.parent_name = parent_name
-                    current_info.parent_email = parent_email
-                    current_info.parent_wxid = parent_wxid
-                    current_info.parent_phone = parent_phone
+                current_contact_info = UserContactInfo.query.filter_by(user_id=current_user.id).first()
+                if current_contact_info:
+                    if wxid:
+                        current_contact_info.wxid = wxid
+                    if phone:
+                        current_contact_info.phone = phone
+                    if parent_name:
+                        current_contact_info.parent_name = parent_name
+                    if parent_email:
+                        current_contact_info.parent_email = parent_email
+                    if parent_wxid:
+                        current_contact_info.parent_wxid = parent_wxid
+                    if parent_phone:
+                        current_contact_info.parent_phone = parent_phone
                     db.session.commit()
                     flash('Information successfully updated!', category='success')
                 else:
-                    db.session.add(
-                        UserContactInfo(wxid=wxid, phone=phone, parent_name=parent_name, parent_email=parent_email,
+                    current_contact_info = UserContactInfo(wxid=wxid, phone=phone, parent_name=parent_name, parent_email=parent_email,
                                         parent_wxid=parent_wxid, parent_phone=parent_phone,
-                                        user_id=current_user.id))
+                                        user_id=current_user.id)
+                    db.session.add(current_contact_info)
                     db.session.commit()
                     flash('Information successfully added!', category='success')
         elif request.form.get('update') == 'volunteer_info':
@@ -79,23 +77,30 @@ def profile():
             career = request.form.get('career')
             status = request.form.get('status')
 
-            if len(school) < 3 or len(school) > 150:
-                flash('Name of school must be greater than 3 characters', category='error')
+            if 1 == 0:
+                pass
             else:
-                current_info = UserVolunteerInfo.query.filter_by(user_id=current_user.id).first()
-                if current_info:
-                    current_info.literacy = literacy
-                    current_info.start_date = start_date
-                    current_info.school = school
-                    current_info.birth_date = birth_date
-                    current_info.career = career
-                    current_info.status = status
+                current_volunteer_info = UserVolunteerInfo.query.filter_by(user_id=current_user.id).first()
+                if current_volunteer_info:
+                    if literacy:
+                        current_volunteer_info.literacy = literacy
+                    if start_date:
+                        current_volunteer_info.start_date = start_date
+                    if school:
+                        current_volunteer_info.school = school
+                    if birth_date:
+                        current_volunteer_info.birth_date = birth_date
+                    if career:
+                        current_volunteer_info.career = career
+                    if status:
+                        current_volunteer_info.status = status
                     db.session.commit()
                     flash('Information successfully updated!', category='success')
                 else:
-                    db.session.add(UserVolunteerInfo(literacy=literacy, start_date=start_date, school=school,
+                    current_volunteer_info = UserVolunteerInfo(literacy=literacy, start_date=start_date, school=school,
                                                      birth_date=birth_date, career=career, status=status,
-                                                     user_id=current_user.id))
+                                                     user_id=current_user.id)
+                    db.session.add(current_volunteer_info)
                     db.session.commit()
                     flash('Information successfully added!', category='success')
 

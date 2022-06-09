@@ -31,3 +31,9 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     last_name = db.Column(db.String(150))
+
+    def get_volunteer_info(self):
+        return UserVolunteerInfo.query.filter_by(user_id=self.id).first()
+
+    def get_contact_info(self):
+        return UserContactInfo.query.filter_by(user_id=self.id).first()
