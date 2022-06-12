@@ -12,7 +12,30 @@ data = Blueprint('data', __name__)
 def profile():
     if request.method == 'POST':
         if request.form.get('update') == 'account_info':
-            pass
+            email = request.form.get('email')
+            first_name = request.form.get('firstName')
+            last_name = request.form.get('lastName')
+            confirm_password = request.form.get('confirm_password')
+
+            user = User.query.filter_by(id=current_user.id).first()
+
+            if not check_password_hash(user.password, confirm_password):
+                flash('Your password is incorrect.', category='error')
+            elif len(email) != 0 and len(email) < 4 or len(email) > 150:
+                flash('Email must be greater than 3 characters.', category='error')
+            elif len(first_name) != 0 and len(first_name) < 2 or len(first_name) > 150:
+                flash('First name must be greater than 1 character.', category='error')
+            elif len(last_name) != 0 and len(last_name) < 2 or len(last_name) > 150:
+                flash('Last name must be greater than 1 character.', category='error')
+            else:
+                if email:
+                    user.email = email
+                if first_name:
+                    user.first_name = first_name
+                if last_name:
+                    user.last_name = last_name
+                flash('Account information successfully updated.', category='success')
+
         elif request.form.get('update') == 'change_password':
             old_password = request.form.get('old_password')
             new_password1 = request.form.get('new_password1')
