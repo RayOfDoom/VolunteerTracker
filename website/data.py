@@ -102,8 +102,12 @@ def update_volunteer_info(literacy, start_date, school, birth_date, career, stat
 
 
 def add_volunteer_record(volunteer_date, event, position, task, hours, kudos, notes):
-    if 1 == 0:
-        pass
+    if not volunteer_date:
+        flash('Please enter a volunteer date.', category='error')
+    elif not event:
+        flash('Please enter the name of the event you volunteered in.', category='error')
+    elif not hours:
+        flash('Please enter the amount of hours you volunteered.', category='error')
     else:
         date_volunteer_date = datetime.strptime(volunteer_date, '%Y-%m-%d')
         new_record = VolunteerRecord(volunteer_date=date_volunteer_date, event=event, position=position, task=task, hours=hours, kudos=kudos, notes=notes, user_id=current_user.id)
@@ -114,8 +118,10 @@ def add_volunteer_record(volunteer_date, event, position, task, hours, kudos, no
 
 
 def request_document(due_date, purpose):
-    if 1 == 0:
-        pass
+    if not due_date:
+        flash('Please enter a due date for this document.', category='error')
+    elif not purpose:
+        flash('Please state your purpose for requesting this document.', category='error')
     else:
         date_due_date = datetime.strptime(due_date, '%Y-%m-%d')
         new_request = DocumentRequest(request_date=date.today(), due_date=date_due_date, purpose=purpose, user_id=current_user.id)
