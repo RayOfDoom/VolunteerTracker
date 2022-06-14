@@ -22,7 +22,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(data, url_prefix='/')
 
-    from .models import User, UserContactInfo, UserVolunteerInfo, AdminView, VolunteerRecord
+    from .models import User, UserContactInfo, UserVolunteerInfo, AdminView, VolunteerRecord, DocumentRequest
 
     create_database(app)
 
@@ -31,6 +31,7 @@ def create_app():
     admin.add_view(AdminView(UserContactInfo, db.session))
     admin.add_view(AdminView(UserVolunteerInfo, db.session))
     admin.add_view(AdminView(VolunteerRecord, db.session))
+    admin.add_view(AdminView(DocumentRequest, db.session))
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

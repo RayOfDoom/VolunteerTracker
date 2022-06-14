@@ -2,6 +2,52 @@
 {% block title %}Portal{% endblock %}
 {% block content %}
     <br/>
-    <h1>This is the personal portal</h1>
-    <h3>Log your volunteer hours <a href="/track-hours">here</a></h3>
+    <h3>Welcome, {{ user.first_name }} (ID: {{ user.id }})</h3>
+    <br/>
+    <h4>You Have {{ user.get_volunteer_hours() }} Volunteer Hours on Record</h4>
+    <p>Log Your Volunteer Hours <a href="/track-hours">Here</a></p>
+    <br/>
+    <h4>Past Volunteer Records</h4>
+    <br/>
+        <table class="table">
+            <thead class="thead-light">
+                <th scope="col">Date</th>
+                <th scope="col">Event</th>
+                <th scope="col">Position</th>
+                <th scope="col">Hours</th>
+            </thead>
+            <tbody>
+                {% for volunteer_record in user.get_volunteer_records() %}
+                    <tr>
+                        <td>{{ volunteer_record.volunteer_date }}</td>
+                        <td>{{ volunteer_record.event }}</td>
+                        <td>{{ volunteer_record.position }}</td>
+                        <td>{{ volunteer_record.hours }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <br/>
+    <h4>Need a Certificate or Letter of Recommendation?</h4>
+    <p>Click <a href="/request-doc">Here</a></p>
+    <br/>
+    <h4>Pending Document Requests</h4>
+    <br/>
+        <table class="table">
+            <thead class="thead-light">
+                <th scope="col">Date Requested</th>
+                <th scope="col">Date Due</th>
+                <th scope="col">Purpose</th>
+            </thead>
+            <tbody>
+                {% for document_request in user.get_document_requests() %}
+                    <tr>
+                        <td>{{ document_request.request_date }}</td>
+                        <td>{{ document_request.due_date }}</td>
+                        <td>{{ document_request.purpose }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <br/>
 {% endblock %}
