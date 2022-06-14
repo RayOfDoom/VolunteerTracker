@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe495e4c-43a8-445b-a601-c4b068f3cd4f" name="Changes" comment="Updated database models to include date support, added request document functionality, portal page now shows past volunteer records and pending document requests">
+    <list default="true" id="fe495e4c-43a8-445b-a601-c4b068f3cd4f" name="Changes" comment="Added crucial data checks to volunteer record and document requests, prepped for first deployment">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +51,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rayb2\OneDrive\Other\webApp" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="webApp" type="Python.FlaskServer">
       <module name="webApp" />
@@ -78,7 +85,7 @@
       <workItem from="1654521946648" duration="45000" />
       <workItem from="1655112095649" duration="10260000" />
       <workItem from="1655177683261" duration="5146000" />
-      <workItem from="1655188262066" duration="2470000" />
+      <workItem from="1655188262066" duration="4712000" />
     </task>
     <task id="LOCAL-00001" summary="Added support for partial profile updating, temporarily removed data checks on form information as byproduct, updated frontend to display current information if the user has information on record">
       <created>1654758542636</created>
@@ -115,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655189908455</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added crucial data checks to volunteer record and document requests, prepped for first deployment">
+      <created>1655190959181</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655190959181</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +152,8 @@
     <MESSAGE value="Fixed missing placeholder in profile, added user permission levels, added admin backend page" />
     <MESSAGE value="Updated variables first_name last_name, cleaned up database entry methods, added support for adding volunteer records and track-hours page" />
     <MESSAGE value="Updated database models to include date support, added request document functionality, portal page now shows past volunteer records and pending document requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated database models to include date support, added request document functionality, portal page now shows past volunteer records and pending document requests" />
+    <MESSAGE value="Added crucial data checks to volunteer record and document requests, prepped for first deployment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added crucial data checks to volunteer record and document requests, prepped for first deployment" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/webApp$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1654755395295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
