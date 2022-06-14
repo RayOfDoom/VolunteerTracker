@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Portal{% endblock %}
+{% block content %}
+    <form method="POST">
+        <br/>
+        <h3 align="center">Track Your Volunteer Hours</h3>
+        <div class="form-group">
+            <label for="volunteer_date">Date You Volunteered</label>
+            <input type="date" class="form-control" id="volunteer_date" name="volunteer_date">
+        </div>
+        <div class="form-group">
+            <label for="event">Program/Event You Volunteered In</label>
+            <input type="text" class="form-control" id="event" name="event"
+                   placeholder="Enter the name of the program or event you volunteered in">
+        </div>
+        <div class="form-group">
+            <label for="position">Position/Role</label>
+            <input type="text" class="form-control" id="position" name="position"
+                   placeholder="Enter the position or role you took on while volunteering">
+        </div>
+        <div class="form-group">
+            <label for="task">Task</label>
+            <input type="text" class="form-control" id="task" name="task"
+                   placeholder="Enter any task or assignment accomplished while volunteering">
+        </div>
+        <div class="form-group">
+            <label for="hours">Volunteer Hours</label>
+            <input type="number" class="form-control" id="hours" name="hours"
+                   placeholder="Enter the number of hours you volunteered">
+        </div>
+        <div class="form-group">
+            <label for="kudos">Kudos</label>
+            <input type="text" class="form-control" id="kudos" name="kudos"
+                   placeholder="Any student/volunteer that stood out positively? Let us know">
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <input type="text" class="form-control" id="notes" name="notes"
+                   placeholder="Enter any additional notes that you might have">
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
