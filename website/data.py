@@ -83,15 +83,15 @@ def update_volunteer_info(literacy, start_date, school, birth_date, career, stat
         flash('Career too long.', category='error')
     else:
         current_volunteer_info = UserVolunteerInfo.query.filter_by(id=current_user.id).first()
-        date_start_date = datetime.strptime(start_date, '%Y-%m-%d')
-        date_birth_date = datetime.strptime(birth_date, '%Y-%m-%d')
         if literacy:
             current_volunteer_info.literacy = literacy
         if start_date:
+            date_start_date = datetime.strptime(start_date, '%Y-%m-%d')
             current_volunteer_info.start_date = date_start_date
         if school:
             current_volunteer_info.school = school
         if birth_date:
+            date_birth_date = datetime.strptime(birth_date, '%Y-%m-%d')
             current_volunteer_info.birth_date = date_birth_date
         if career:
             current_volunteer_info.career = career
