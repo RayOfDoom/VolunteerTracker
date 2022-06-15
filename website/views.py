@@ -8,3 +8,9 @@ views = Blueprint('views', __name__)
 @login_required
 def portal():
     return render_template("portal.html", user=current_user)
+
+
+@views.route('/growth')
+@login_required
+def growth():
+    return render_template("growth.html", user=current_user)

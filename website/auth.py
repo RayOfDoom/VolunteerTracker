@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
-from .models import User, UserContactInfo, UserVolunteerInfo
+from .models import User, UserContactInfo, UserVolunteerInfo, UserGrowthInfo, UserAccountingInfo
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 
@@ -42,6 +42,8 @@ def user_signup(email, first_name, last_name, password1, password2):
         db.session.commit()
         db.session.add(UserContactInfo(id=new_user.id))
         db.session.add(UserVolunteerInfo(id=new_user.id))
+        db.session.add(UserGrowthInfo(id=new_user.id))
+        db.session.add(UserAccountingInfo(id=new_user.id))
         db.session.commit()
         flash('Account created!', category='success')
         login_user(new_user, remember=True)

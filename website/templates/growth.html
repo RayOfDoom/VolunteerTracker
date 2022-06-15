@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Personal Growth{% endblock %}
+{% block content %}
+    <br/>
+    <h3>Personal Growth</h3>
+    <br/>
+    <h4>You are currently in the {{ user.get_growth_info() }} stage</h4>
+    <br/>
+    <h4>Given Feedbacks</h4>
+    <br/>
+        <table class="table">
+            <thead class="thead-light">
+                <th scope="col">Date</th>
+                <th scope="col">Type</th>
+                <th scope="col">From</th>
+                <th scope="col">Content</th>
+            </thead>
+            <tbody>
+                {% for feedback in user.get_feedbacks() %}
+                    <tr>
+                        <td>{{ feedback.date }}</td>
+                        <td>{{ feedback.type }}</td>
+                        <td>{{ user.get_user(feedback.from_id).first_name }}</td>
+                        <td>{{ feedback.content }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <br/>
+    <h4>Accounting Info</h4>
+    <br/>
+    <p>Your contract is signed</p>
+    <p>Your next payment is due on {{ user.get_accounting_info().next_payment }}</p>
+    <br/>
+    <h4>Past Payments</h4>
+        <table class="table">
+            <thead class="thead-light">
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+            </thead>
+            <tbody>
+                {% for payment in user.get_payments() %}
+                    <tr>
+                        <td>{{ payment.date }}</td>
+                        <td>{{ payment.amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <br/>
+{% endblock %}

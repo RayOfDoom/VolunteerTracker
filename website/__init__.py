@@ -22,16 +22,20 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(data, url_prefix='/')
 
-    from .models import User, UserContactInfo, UserVolunteerInfo, AdminView, VolunteerRecord, DocumentRequest
+    from .models import User, UserContactInfo, UserVolunteerInfo, AdminView, VolunteerRecord, DocumentRequest, UserGrowthInfo, Feedback, Payment, UserAccountingInfo
 
     create_database(app)
 
     admin = Admin(app, template_mode='bootstrap3')
-    admin.add_view(AdminView(User, db.session))
-    admin.add_view(AdminView(UserContactInfo, db.session))
-    admin.add_view(AdminView(UserVolunteerInfo, db.session))
-    admin.add_view(AdminView(VolunteerRecord, db.session))
-    admin.add_view(AdminView(DocumentRequest, db.session))
+    admin.add_view(AdminView(User, db.session, category='User'))
+    admin.add_view(AdminView(UserContactInfo, db.session, category='User'))
+    admin.add_view(AdminView(UserVolunteerInfo, db.session, category='User'))
+    admin.add_view(AdminView(UserGrowthInfo, db.session, category='User'))
+    admin.add_view(AdminView(UserAccountingInfo, db.session, category='User'))
+    admin.add_view(AdminView(VolunteerRecord, db.session, category='Volunteer'))
+    admin.add_view(AdminView(DocumentRequest, db.session, category='Volunteer'))
+    admin.add_view(AdminView(Feedback, db.session, category='Growth'))
+    admin.add_view(AdminView(Payment, db.session, category='Accounting'))
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
