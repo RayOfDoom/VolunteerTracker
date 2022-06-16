@@ -87,7 +87,7 @@
         <div class=" form-group">
             <label for="literacy">English Literacy</label>
             <select class="form-control" id="literacy" name="literacy">
-                <option value=null selected disabled>{% if user.get_volunteer_info().literacy %} {{ 'Currently: ' + user.get_volunteer_info().literacy }} {% else %}Select your literacy level{% endif %}</option>
+                <option value="" selected disabled>{% if user.get_volunteer_info().literacy %} {{ 'Currently: ' + user.get_volunteer_info().literacy }} {% else %}Select your literacy level{% endif %}</option>
                 <option value="Native">Native</option>
                 <option value="Fluent">Fluent</option>
                 <option value="Conversational">Conversational</option>
@@ -116,7 +116,7 @@
         <div class=" form-group">
             <label for="status">Volunteer Status</label>
             <select class="form-control" id="status" name="status">
-                <option value=null selected disabled>{% if user.get_volunteer_info().status %} {{ 'Currently: ' + user.get_volunteer_info().status }} {% else %}Select your volunteer status{% endif %}</option>
+                <option value="" selected disabled>{% if user.get_volunteer_info().status %} {{ 'Currently: ' + user.get_volunteer_info().status }} {% else %}Select your volunteer status{% endif %}</option>
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </select>

@@ -37,13 +37,16 @@ class User(db.Model, UserMixin):
     def get_payments(self):
         return Payment.query.filter_by(user_id=self.id).order_by(desc(Payment.date))
 
-    def get_user(self, user_id):
-        return User.query.filter_by(id=user_id).first()
-
     def get_volunteer_hours(self, total_hours=0):
         for records in VolunteerRecord.query.filter_by(user_id=self.id):
             total_hours += records.hours
         return round(total_hours, 1)
+
+    def get_user(self, user_id):
+        return User.query.filter_by(id=user_id).first()
+
+    def get_all_volunteers(self):
+        return User.query.filter_by(permission_level=0)
 
 
 class UserContactInfo(db.Model):

@@ -28,12 +28,17 @@
             <input type="number" step="0.1" class="form-control" id="hours" name="hours"
                    placeholder="Enter the number of hours you volunteered" required min="0">
         </div>
-        {#TODO: UPDATE FOR KUDOS
         <div class="form-group">
-            <label for="kudos">Kudos</label>
-            <input type="text" class="form-control" id="kudos" name="kudos"
-                   placeholder="Any student/volunteer that stood out positively? Let us know">
-        </div>#}
+            <label for="kudos_recipient">Kudos</label>
+            <select class="form-control" id="kudos_recipient" name="kudos_recipient">
+                <option value="" selected disabled>Select a volunteer to give kudos to</option>
+                {% for users in user.get_all_volunteers() %}
+                    <option value={{ users.id }}>{{ users.first_name }} {{ users.last_name }}</option>
+                {% endfor %}
+            </select>
+            <label for="kudos">Content</label>
+            <textarea type="text" class="form-control" id="kudos" name="kudos" placeholder="Give your kudos here" rows="3"></textarea>
+        </div>
         <div class="form-group">
             <label for="notes">Notes</label>
             <input type="text" class="form-control" id="notes" name="notes"

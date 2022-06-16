@@ -1,7 +1,7 @@
 from datetime import datetime, date
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
-from .models import User, UserContactInfo, UserVolunteerInfo, VolunteerRecord, DocumentRequest
+from .models import User, UserContactInfo, UserVolunteerInfo, VolunteerRecord, DocumentRequest, Feedback
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, current_user
 
@@ -101,7 +101,7 @@ def update_volunteer_info(literacy, start_date, school, birth_date, career, stat
         flash('Information successfully updated!', category='success')
 
 
-def add_volunteer_record(volunteer_date, event, position, task, hours, kudos, notes):
+def add_volunteer_record(volunteer_date, event, position, task, hours, notes):
     if not volunteer_date:
         flash('Please enter a volunteer date.', category='error')
     elif not event:
@@ -110,7 +110,7 @@ def add_volunteer_record(volunteer_date, event, position, task, hours, kudos, no
         flash('Please enter the amount of hours you volunteered.', category='error')
     else:
         date_volunteer_date = datetime.strptime(volunteer_date, '%Y-%m-%d')
-        new_record = VolunteerRecord(volunteer_date=date_volunteer_date, event=event, position=position, task=task, hours=hours, kudos=kudos, notes=notes, user_id=current_user.id)
+        new_record = VolunteerRecord(volunteer_date=date_volunteer_date, event=event, position=position, task=task, hours=hours, notes=notes, user_id=current_user.id)
         db.session.add(new_record)
         db.session.commit()
         flash('Volunteer record successfully added!', category='success')
@@ -129,6 +129,18 @@ def request_document(due_date, purpose):
         db.session.commit()
         flash('Successfully requested LOR/certificate!', category='success')
         return redirect(url_for('views.portal'))
+
+
+def add_kudos(kudos_recipient, kudos):
+    if not kudos_recipient and not kudos:
+        return
+    elif kudos_recipient and not kudos:
+        flash('Please give kudos to the volunteer that you selected')
+    else:
+        feedback = Feedback(date=date.today(), type='Kudos', content=kudos, to_id=kudos_recipient, from_id=current_user.id)
+        db.session.add(feedback)
+        db.session.commit()
+        flash('Kudos given!', category='success')
 
 
 @data.route('/profile', methods=['GET', 'POST'])
@@ -174,9 +186,11 @@ def track_hours():
         position = request.form.get('position')
         task = request.form.get('task')
         hours = request.form.get('hours')
+        kudos_recipient = request.form.get('kudos_recipient')
         kudos = request.form.get('kudos')
         notes = request.form.get('notes')
-        return add_volunteer_record(volunteer_date, event, position, task, hours, kudos, notes)
+        add_kudos(kudos_recipient, kudos)
+        return add_volunteer_record(volunteer_date, event, position, task, hours, notes)
     return render_template('track-hours.html', user=current_user)
 
 
