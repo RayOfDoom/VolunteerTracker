@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Portal{% endblock %}
+{% block current_page %}Portal{% endblock %}
 {% block content %}
     <br/>
-    <h3>Welcome, {{ user.first_name }} (ID: {{ user.id }})</h3>
     <br/>
-    <h4>You Have {{ user.get_volunteer_hours() }} Volunteer Hours on Record</h4>
-    <p>Log Your Volunteer Hours <a href="/track-hours">Here</a></p>
-    <br/>
-    <h4>Past Volunteer Records</h4>
-    <br/>
-        <table class="table">
-            <thead class="thead-light">
+    <div class="row justify-content-around">
+        <div class="jumbotron col col-md-7">
+            <h3 class="DMECCFont">Welcome, {{ user.first_name }} (ID: {{ user.id }})</h3>
+            <br/>
+            <h4 class="DMECCFont">You Have {{ user.get_volunteer_hours() }} Volunteer Hours on Record</h4>
+            <br/>
+            <h5>Past Volunteer Records</h5>
+            <table class="table">
+                <thead class="thead-light">
                 <th scope="col">Date</th>
                 <th scope="col">Event</th>
                 <th scope="col">Position</th>
                 <th scope="col">Hours</th>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {% for volunteer_record in user.get_volunteer_records() %}
                     <tr>
                         <td>{{ volunteer_record.volunteer_date }}</td>
@@ -25,21 +27,17 @@
                         <td>{{ volunteer_record.hours }}</td>
                     </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-    <br/>
-    <h4>Need a Certificate or Letter of Recommendation?</h4>
-    <p>Click <a href="/request-doc">Here</a></p>
-    <br/>
-    <h4>Pending Document Requests</h4>
-    <br/>
-        <table class="table">
-            <thead class="thead-light">
+                </tbody>
+            </table>
+            <br/>
+            <h5>Pending Document Requests</h5>
+            <table class="table">
+                <thead class="thead-light">
                 <th scope="col">Date Requested</th>
                 <th scope="col">Date Due</th>
                 <th scope="col">Purpose</th>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {% for document_request in user.get_document_requests() %}
                     <tr>
                         <td>{{ document_request.request_date }}</td>
@@ -47,7 +45,31 @@
                         <td>{{ document_request.purpose }}</td>
                     </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-    <br/>
+                </tbody>
+            </table>
+            <br/>
+        </div>
+        <div class="col col-md-4">
+            <div class="row">
+                <div class="jumbotron col" onclick="location.href='/track-hours'">
+                    <h1 align="center" class="DMECCFont">Track Hours</h1>
+                    <br/>
+                    <div class="center-together">
+                        <img src="../static/ball-small.png" style="width:50px;height:50px">
+                        <p align="center">Track volunteer activities done this week, give feedback to your peers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="jumbotron col">
+                    <h1 align="center" class="DMECCFont" onclick="location.href='/request-doc'">Request Letter</h1>
+                    <br/>
+                    <div class="center-together">
+                        <img src="../static/ball-small.png" style="width:50px;height:50px">
+                        <p align="center">Request a letter of recommendation or certificate for volunteer hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -13,7 +13,7 @@ def user_login(email, password):
         if check_password_hash(user.password, password):
             flash('Logged in successfully!', category='success')
             login_user(user, remember=True)
-            return redirect(url_for('views.portal'))
+            return redirect(url_for('views.landing'))
         else:
             flash('Incorrect password, try again.', category='error')
     else:
@@ -47,7 +47,7 @@ def user_signup(email, first_name, last_name, password1, password2):
         db.session.commit()
         flash('Account created!', category='success')
         login_user(new_user, remember=True)
-        return redirect(url_for('views.portal'))
+        return redirect(url_for('views.landing'))
     return render_template('signup.html', user=current_user)
 
 
@@ -65,7 +65,7 @@ def login():
 def logout():
     logout_user()
     flash('Successfully logged out.', category='success')
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('views.home'))
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])

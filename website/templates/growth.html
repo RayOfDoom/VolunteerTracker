@@ -1,51 +1,52 @@
 {% extends "base.html" %}
 {% block title %}Personal Growth{% endblock %}
+{% block current_page %}Growth{% endblock %}
 {% block content %}
     <br/>
-    <h3>Personal Growth</h3>
     <br/>
-    <h4>You are currently in the {{ user.get_growth_info() }} stage</h4>
-    <br/>
-    <h4>Given Feedbacks</h4>
-    <br/>
-        <table class="table">
-            <thead class="thead-light">
-                <th scope="col">Date</th>
-                <th scope="col">Type</th>
-                <th scope="col">From</th>
-                <th scope="col">Content</th>
-            </thead>
-            <tbody>
-                {% for feedback in user.get_feedbacks() %}
-                    <tr>
-                        <td>{{ feedback.date }}</td>
-                        <td>{{ feedback.type }}</td>
-                        <td>{{ user.get_user(feedback.from_id).first_name }}</td>
-                        <td>{{ feedback.content }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    <br/>
-    <h4>Accounting Info</h4>
-    <br/>
-    <p>Your contract is signed</p>
-    <p>Your next payment is due on {{ user.get_accounting_info().next_payment }}</p>
-    <br/>
-    <h4>Past Payments</h4>
-        <table class="table">
-            <thead class="thead-light">
-                <th scope="col">Date</th>
-                <th scope="col">Amount</th>
-            </thead>
-            <tbody>
-                {% for payment in user.get_payments() %}
-                    <tr>
-                        <td>{{ payment.date }}</td>
-                        <td>{{ payment.amount }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    <br/>
+    <div class="row justify-content-around">
+        <div class="jumbotron col col-md-6">
+            <h3 class="DMECCFont">Volunteer Status/Options</h3>
+            <br/>
+            <h4 class="DMECCFont">Your stage: {{ user.get_growth_info() }}</h4>
+            <br/>
+            <p>Other information about growth and volunteer status will go here</p>
+        </div>
+        <div class="col col-md-5">
+            <div class="row">
+                <div class="jumbotron col">
+                    <h1 align="center" class="DMECCFont">Accounting</h1>
+                    <br/>
+                    <p>Your contract is TODO:status</p>
+                    <p>Payment made on {{ user.get_payments().first().date }}</p>
+                    <p>Your next payment is due on {{ user.get_accounting_info().next_payment }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="jumbotron col">
+                    <h1 align="center" class="DMECCFont">Feedback</h1>
+                    <br/>
+                    <table class="table">
+                        <thead class="thead-light">
+                        <th scope="col">Date</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">From</th>
+                        <th scope="col">Content</th>
+                        </thead>
+                        <tbody>
+                        {% for feedback in user.get_feedbacks() %}
+                            <tr>
+                                <td>{{ feedback.date }}</td>
+                                <td>{{ feedback.type }}</td>
+                                <td>{{ user.get_user(feedback.from_id).first_name }}</td>
+                                <td>{{ feedback.content }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

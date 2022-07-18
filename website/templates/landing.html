@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Landing{% endblock %}
+{% block current_page %}Landing{% endblock %}
+{% block content %}
+    <br/>
+    <br/>
+    <div class="row justify-content-around">
+        <div class="jumbotron col col-md-4 offset-md-1" onclick="location.href='/portal'">
+            <h1 align="center" class="DMECCFont">Volunteer Portal</h1>
+            <br/>
+            <br/>
+            <br/>
+            <div class="center-together">
+                <img src="../static/ball-small.png" style="width:50px;height:50px">
+                <p align="center">Track hours, request a letter of recommendation, see your past events and activities.</p>
+            </div>
+        </div>
+        <div class="jumbotron col col-md-4" onclick="location.href='/growth'">
+            <h1 align="center" class="DMECCFont">Personal Growth</h1>
+            <br/>
+            <br/>
+            <br/>
+            <div class="center-together">
+                <img src="../static/ball-small.png" style="width:50px;height:50px">
+                <p align="center">See your current growth in DMECC, see feedback given and received, check accounting details.</p>
+            </div>
+        </div>
+        <div class="col col-md-1"></div>
+    </div>
+{% endblock %}

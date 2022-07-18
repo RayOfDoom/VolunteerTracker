@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fe495e4c-43a8-445b-a601-c4b068f3cd4f" name="Changes" comment="Added support for giving kudos to other volunteers, made all select types searchable">
+      <change afterPath="$PROJECT_DIR$/website/static/Asparagus Sprouts.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/static/ball-small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/static/ball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/static/bg-tile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/static/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/templates/landing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eeb95ed3-8395-4067-a411-6f2c1643a79c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eeb95ed3-8395-4067-a411-6f2c1643a79c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/growth.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/growth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/portal.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/portal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/request-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/request-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/track-hours.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/track-hours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,21 +37,27 @@
       <list>
         <option value="Flask Main" />
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
-  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" module-name="webApp" is-module-sdk="true">
     <envs>
       <env key="FLASK_APP" value="app" />
     </envs>
     <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myUseModuleSdk" value="true" />
+    <option name="myModuleName" value="webApp" />
     <option name="myEnvs">
       <map>
         <entry key="FLASK_APP" value="app" />
       </map>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,23 +78,38 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/rayb2/OneDrive/Other/webApp",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/rayb2/OneDrive/3. Other/webApp/website/templates",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "actions.on.save"
   }
 }]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="webApp" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="webApp" />
+      </console-settings>
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rayb2\OneDrive\3. Other\webApp\website\templates" />
       <recent name="C:\Users\rayb2\OneDrive\Other\webApp" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="webApp" type="Python.FlaskServer">
+      <option name="additionalOptions" value="--port=1234" />
+      <option name="flaskDebug" value="true" />
       <module name="webApp" />
-      <option name="target" value="$PROJECT_DIR$/main.py" />
+      <option name="target" value="C:\Users\rayb2\OneDrive\3. Other\webApp\main.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\Users\rayb2\OneDrive\Other\webApp\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\rayb2\OneDrive\3. Other\webApp\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -90,6 +133,21 @@
       <workItem from="1655177683261" duration="5146000" />
       <workItem from="1655188262066" duration="15927000" />
       <workItem from="1655344695280" duration="2534000" />
+      <workItem from="1656325384825" duration="1270000" />
+      <workItem from="1656344584393" duration="25000" />
+      <workItem from="1656923460575" duration="2638000" />
+      <workItem from="1656930605665" duration="1020000" />
+      <workItem from="1657369125706" duration="1788000" />
+      <workItem from="1657686865545" duration="109000" />
+      <workItem from="1657688371057" duration="4000" />
+      <workItem from="1657697300759" duration="20000" />
+      <workItem from="1657702730645" duration="55000" />
+      <workItem from="1657702908080" duration="12000" />
+      <workItem from="1657702942862" duration="627000" />
+      <workItem from="1657715040018" duration="9000" />
+      <workItem from="1657715062208" duration="5000" />
+      <workItem from="1657810782731" duration="10156000" />
+      <workItem from="1658132762363" duration="9242000" />
     </task>
     <task id="LOCAL-00001" summary="Added support for partial profile updating, temporarily removed data checks on form information as byproduct, updated frontend to display current information if the user has information on record">
       <created>1654758542636</created>
@@ -192,7 +250,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/webApp$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1654755395295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/webApp$webApp.coverage" NAME="webApp Coverage Results" MODIFIED="1655347241045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/webApp$webApp.coverage" NAME="webApp Coverage Results" MODIFIED="1658132773242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/webApp$Flask__website___init___py_.coverage" NAME="Flask (website/__init__.py) Coverage Results" MODIFIED="1654756378179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

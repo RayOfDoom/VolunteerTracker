@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Profile{% endblock %}
+{% block current_page %}Profile{% endblock %}
 {% block content %}
     <br/>
     <form method="POST">
@@ -87,7 +88,8 @@
         <div class=" form-group">
             <label for="literacy">English Literacy</label>
             <select class="form-control" id="literacy" name="literacy">
-                <option value="" selected disabled>{% if user.get_volunteer_info().literacy %} {{ 'Currently: ' + user.get_volunteer_info().literacy }} {% else %}Select your literacy level{% endif %}</option>
+                <option value="" selected disabled>{% if user.get_volunteer_info().literacy %} {{ 'Currently: ' + user.get_volunteer_info().literacy }} {% else %}Select your literacy
+                    level{% endif %}</option>
                 <option value="Native">Native</option>
                 <option value="Fluent">Fluent</option>
                 <option value="Conversational">Conversational</option>
@@ -97,7 +99,8 @@
         </div>
         <div class="form-group">
             <label for="start_date">Volunteering Start Date</label>
-            <input type="date" class="form-control" id="start_date" name="start_date" placeholder="{% if user.get_volunteer_info().start_date %}{{ user.get_volunteer_info().start_date }}{% else %}Enter your volunteering start date{% endif %}">
+            <input type="date" class="form-control" id="start_date" name="start_date"
+                   placeholder="{% if user.get_volunteer_info().start_date %}{{ user.get_volunteer_info().start_date }}{% else %}Enter your volunteering start date{% endif %}">
         </div>
         <div class="form-group">
             <label for="school">School</label>
@@ -106,7 +109,8 @@
         </div>
         <div class="form-group">
             <label for="birth_date">Date of Birth</label>
-            <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="{% if user.get_volunteer_info().birth_date %}{{ user.get_volunteer_info().birth_date }}{% else %}Enter your date of birth{% endif %}">
+            <input type="date" class="form-control" id="birth_date" name="birth_date"
+                   placeholder="{% if user.get_volunteer_info().birth_date %}{{ user.get_volunteer_info().birth_date }}{% else %}Enter your date of birth{% endif %}">
         </div>
         <div class="form-group">
             <label for="career">Intended Career/Desired Major</label>
@@ -116,7 +120,8 @@
         <div class=" form-group">
             <label for="status">Volunteer Status</label>
             <select class="form-control" id="status" name="status">
-                <option value="" selected disabled>{% if user.get_volunteer_info().status %} {{ 'Currently: ' + user.get_volunteer_info().status }} {% else %}Select your volunteer status{% endif %}</option>
+                <option value="" selected disabled>{% if user.get_volunteer_info().status %} {{ 'Currently: ' + user.get_volunteer_info().status }} {% else %}Select your volunteer
+                    status{% endif %}</option>
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </select>

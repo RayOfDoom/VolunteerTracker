@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Request a Document{% endblock %}
+{% block current_page %}Request Letter{% endblock %}
 {% block content %}
     <form method="POST">
         <br/>
@@ -11,7 +12,7 @@
         <div class="form-group">
             <label for="purpose">Purpose</label>
             <textarea type="text" class="form-control" id="purpose" name="purpose"
-                   placeholder="Talk about why you need this document (college applications?, etc.)" rows="3" required></textarea>
+                      placeholder="Talk about why you need this document (college applications?, etc.)" rows="3" required></textarea>
         </div>
         <br/>
         <button type="submit" class="btn btn-primary">Submit</button>
