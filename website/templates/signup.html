@@ -2,7 +2,7 @@
 {% block title %}Sign Up{% endblock %}
 {% block current_page %}Sign Up{% endblock %}
 {% block content %}
-    <form name="sign_up" method="POST">
+    <form id="form" name="sign_up" method="POST">
         <br/>
         <h3 align="center">Sign Up</h3>
         <div class="form-group">
@@ -30,6 +30,63 @@
                    placeholder="Confirm your password" required>
         </div>
         <br/>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <button onclick="submit_form()" type="submit" class="btn btn-primary">Submit</button>
+
+    <script>
+        var form = document.getElementById('form');
+        var email = document.getElementById('email');
+
+        var first_name = document.getElementById('first_name');
+        var last_name = document.getElementById('last_name');
+
+        var password1 = document.getElementById('password1');
+        var password2 = document.getElementById('password2');
+
+        function submit_form() {
+            if(first_name.value.length < 2 || first_name.value.length > 150) {
+                display_error('First name must be greater than 1 character.');
+                return;
+            }
+
+            if(last_name.value.length < 2 || last_name.value.length > 150) {
+                display_error('Last name must be greater than 1 character.');
+                return;
+            }
+
+            if(password1.value !== password2.value) {
+                display_error('The passwords do not match');
+                return;
+            }
+
+            if(password1.value.length < 7 || password1.value.length > 150) {
+                display_error('Password must be at least 7 characters.');
+                return;
+            }
+
+            if(email.value.length < 4 || email.value.length > 150) {
+                display_error('Email must be greater than 3 characters.');
+                return;
+            }
+
+            var email_pass = true;
+
+            fetch(`/sign-up/check_email?email=${email.value}`).then((response) => {
+                response.json().then((data) =>{
+                    if(data === "err") {
+                        display_error("Email already exists.");
+                        email_pass = false;
+                    }
+                    else {
+                        form.submit();
+                    }
+                });
+            });
+
+        }
+
+        function display_error(message) {
+            console.log(message);
+        }
+    </script>
 {% endblock %}

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, jsonify, make_response, render_template, request, flash, redirect, url_for
 from . import db
 from .models import User, UserContactInfo, UserVolunteerInfo, UserGrowthInfo, UserAccountingInfo
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -78,3 +78,17 @@ def sign_up():
         password2 = request.form.get('password2')
         return user_signup(email, first_name, last_name, password1, password2)
     return render_template('signup.html', user=current_user)
+
+
+#BACKEND FOR SIGNUP CHECK
+@auth.route('/sign-up/check_email')
+def check_email():
+    if request.args:
+        email = str(request.args.get("email"))
+        user = User.query.filter_by(email=email).first()
+
+        if user is not None:
+            res = make_response(jsonify("err"), 200)
+        else:
+            res = make_response(jsonify("ok"), 200)
+    return res
